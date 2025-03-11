@@ -7,12 +7,12 @@ const finalImages = {
 
 // Store transition GIFs
 const transitions = {
-  "variant1-variant2": "assets/tri-quatra.gif",
-  "variant2-variant3": "assets/quatra-penta.gif",
-  "variant1-variant3": "assets/tri-penta.gif",
-  "variant3-variant1": "assets/penta-tri.gif",
-  "variant3-variant2": "assets/penta-quatra.gif",
-  "variant2-variant1": "assets/quatra-tri.gif",
+  "variant1-variant2": "assets/tri-quatra.webp",
+  "variant2-variant3": "assets/quatra-penta.webp",
+  "variant1-variant3": "assets/tri-penta.webp",
+  "variant3-variant1": "assets/penta-tri.webp",
+  "variant3-variant2": "assets/penta-quatra.webp",
+  "variant2-variant1": "assets/quatra-tri.webp",
 };
 
 function preloadTransitionGIFs(transitions) {

@@ -23,7 +23,7 @@ h2 {
     padding-left: 20px;
     padding-right: 20px;
     position: relative;
-    padding-bottom: 10px; /* Ensure space for underline */
+    padding-bottom: 10px; 
 }
 
 .browsebtn {
@@ -33,24 +33,24 @@ h2 {
     padding-left: 20px;
     padding-right: 20px;
     position: relative;
-    padding-bottom: 10px; /* Ensure space for underline */
+    padding-bottom: 10px; 
 }
 
 .variant-button::after {
     content: "";
     position: absolute;
-    left: 50%; /* Position the underline at the center of the button */
+    left: 50%; 
     bottom: 0;
-    width: 80%; /* Make the underline span 100% of the button width */
-    height: 3px; /* Thickness of the underline */
-    background-color: transparent; /* Hidden by default */
-    transform: translateX(-50%); /* Adjust by half of its own width to center it */
+    width: 80%; 
+    height: 3px; 
+    background-color: transparent; 
+    transform: translateX(-50%); 
     transition: background-color 0.3s ease-in-out;
 }
 
 .variant-button:hover::after,
 .variant-button.selected::after { 
-    background-color: white; /* Show underline on hover or when selected */
+    background-color: white; 
 }
 
   
