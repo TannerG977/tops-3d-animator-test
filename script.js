@@ -17,38 +17,85 @@ const transitions = {
 
 function preloadTransitionGIFs(transitions) {
   Object.values(transitions).forEach((src) => {
-    const img = new Image(); 
-    img.src = src;            
+    const img = new Image();
+    img.src = src;
   });
 };
 
 preloadTransitionGIFs(transitions);
 
-
 let currentVariant = "variant1"; // Default variant
 
 document.querySelectorAll(".variant-button").forEach(button => {
   button.addEventListener("click", function () {
+    // Remove 'selected' class from all buttons
+    document.querySelectorAll(".variant-button").forEach(btn => btn.classList.remove("selected"));
+
+    // Add 'selected' class to the clicked button
+    this.classList.add("selected");
+
     const newVariant = this.getAttribute("data-variant");
     const transitionKey = `${currentVariant}-${newVariant}`;
     const productMedia = document.getElementById("product-media");
+    const productHead = document.getElementById('product-header');
 
     if (currentVariant === newVariant) {
       return; // Prevent replaying the GIF if the same variant is selected
     }
-    
+
+    // Fade out header and update text
+    fadeOutHeader(productHead, function() {
+      if (newVariant === "variant1") {
+        productHead.innerHTML = "TRI-TOP&trade;";
+      }
+
+      if (newVariant === "variant2") {
+        productHead.innerHTML = "QUATRA-TOP&trade;";
+      }
+
+      if (newVariant === "variant3") {
+        productHead.innerHTML = "PENTA-TOP&trade;";
+      }
+
+      // Fade in header after text change
+      fadeInHeader(productHead);
+    });
+
+    // Now, play the transition GIF (or final image) immediately
     if (transitions[transitionKey]) {
-      // Play transition GIF
       productMedia.src = transitions[transitionKey];
-    
-      // Once the GIF finishes, it will stay on the last frame naturally
     } else {
-      // No transition GIF available, directly switch to final image
       productMedia.src = finalImages[newVariant];
     }
-    
+
     // Update the current variant
     currentVariant = newVariant;
-    
   });
 });
+
+// Function to fade out the header
+function fadeOutHeader(element, callback) {
+  let opacity = 1;
+  const fadeOutInterval = setInterval(function() {
+    if (opacity <= 0) {
+      clearInterval(fadeOutInterval);
+      callback(); // Call the provided callback when fade-out is done
+    } else {
+      opacity -= 0.05;
+      element.style.opacity = opacity;
+    }
+  }, 20);
+}
+
+// Function to fade in the header
+function fadeInHeader(element) {
+  let opacity = 0;
+  const fadeInInterval = setInterval(function() {
+    if (opacity >= 1) {
+      clearInterval(fadeInInterval);
+    } else {
+      opacity += 0.05;
+      element.style.opacity = opacity;
+    }
+  }, 20);
+}

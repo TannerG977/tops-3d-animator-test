@@ -1,0 +1,56 @@
+h2 {
+    font-family: "Allerta Stencil", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px !important;
+}
+
+.selector {
+    background-color: #743D3D;
+    padding-top: 25px;
+    padding-bottom: 25px; 
+}
+
+
+.variant-button {
+    font-family: "Allerta Stencil", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    border: 0;
+    color: white;
+    background-color: #743D3D;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    padding-bottom: 10px; /* Ensure space for underline */
+}
+
+.browsebtn {
+    border: 0;
+    color: white;
+    background-color: #743D3D;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    padding-bottom: 10px; /* Ensure space for underline */
+}
+
+.variant-button::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Position the underline at the center of the button */
+    bottom: 0;
+    width: 80%; /* Make the underline span 100% of the button width */
+    height: 3px; /* Thickness of the underline */
+    background-color: transparent; /* Hidden by default */
+    transform: translateX(-50%); /* Adjust by half of its own width to center it */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.variant-button:hover::after,
+.variant-button.selected::after { 
+    background-color: white; /* Show underline on hover or when selected */
+}
+
+  
