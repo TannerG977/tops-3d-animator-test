@@ -1,9 +1,4 @@
-// Store still images for final states
-const finalImages = {
-  variant1: "assets/0001.png",
-  variant2: "assets/0100.png",
-  variant3: "assets/0200.png"
-};
+
 
 // Store transition GIFs
 const transitions = {
@@ -13,6 +8,20 @@ const transitions = {
   "variant3-variant1": "assets/penta-tri.webp",
   "variant3-variant2": "assets/penta-quatra.webp",
   "variant2-variant1": "assets/quatra-tri.webp",
+  "variant1-variant4": "assets/uni.webp",
+  "variant2-variant4": "assets/uni.webp",
+  "variant3-variant4": "assets/uni.webp",
+  "variant4-variant1": "assets/l-tri.webp",
+  "variant4-variant2": "assets/tri-quatra.webp",
+  "variant4-variant3": "assets/tri-penta.webp",
+  "variant4-variant5": "assets/l-t.webp",
+  "variant5-variant1": "assets/t-tri.webp",
+  "variant1-variant5": "assets/t-top.webp",
+  "variant2-variant5": "assets/t-top.webp",
+  "variant3-variant5": "assets/t-top.webp",
+  "variant5-variant2": "assets/tri-quatra.webp",
+  "variant5-variant3": "assets/tri-penta.webp",
+  "variant5-variant4": "assets/t-l.webp",
 };
 
 function preloadTransitionGIFs(transitions) {
@@ -57,6 +66,14 @@ document.querySelectorAll(".variant-button").forEach(button => {
         productHead.innerHTML = "PENTA-TOP&trade;";
       }
 
+      if (newVariant === "variant4") {
+        productHead.innerHTML = "L-TOP&trade;";
+      }
+
+      if (newVariant === "variant5") {
+        productHead.innerHTML = "T-TOP&trade;";
+      }
+
       // Fade in header after text change
       fadeInHeader(productHead);
     });
@@ -64,9 +81,7 @@ document.querySelectorAll(".variant-button").forEach(button => {
     // Now, play the transition GIF (or final image) immediately
     if (transitions[transitionKey]) {
       productMedia.src = transitions[transitionKey];
-    } else {
-      productMedia.src = finalImages[newVariant];
-    }
+    } 
 
     // Update the current variant
     currentVariant = newVariant;

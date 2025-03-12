@@ -11,12 +11,17 @@ h2 {
     padding-bottom: 25px; 
 }
 
+#product-media {
+    border: solid 1px;
+    border-radius: 20px;
+}
+
 
 .variant-button {
     font-family: "Allerta Stencil", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 30px;
+    font-size: 25px;
     border: 0;
     color: white;
     background-color: #743D3D;
